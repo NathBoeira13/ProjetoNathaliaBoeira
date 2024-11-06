@@ -5,6 +5,7 @@
 package toold;
 
 import java.util.Date;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -23,10 +24,12 @@ public class Util {
     
     public static void limp(JComponent ... vetCamp) {
         for (int i = 0; i < vetCamp.length; i++) {
-            
-            
-           ((JTextField) vetCamp[i]).setText("");
-            
+            if (vetCamp [i] instanceof JTextField){
+            ((JTextField) vetCamp[i]).setText("");
+            }
+            if(vetCamp [i] instanceof JComboBox){
+             ((JComboBox) vetCamp[i]).setSelectedIndex(-1);   
+            }
         }
     }
     public static void msg( String mensagem) {
